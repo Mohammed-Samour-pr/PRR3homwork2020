@@ -1,0 +1,22 @@
+
+-----> 1- Data Source:  listEmployees.stream()
+
+-----> 2- Intermediate Stream contains: 
+             ==> filter(): produces a new stream that contains elements of the original stream that pass a given test
+	and its condition (e-> e.getSalary() >=800 && e.getSalary() <1200) so its produce list contians employees
+	that their salary greater than or equal 800 and less than 1200.
+
+            ==> map(): produces a new stream after applying a function to each element of the original stream
+	   apply this: e-> new Employee(e.getId(), e.getName(), e.getDepartment(), getSalary()*1.02))	
+	   add to salary 1.02 of  salary.
+       
+-----> 3- Terminal Stream operations:
+
+            ==> collect(): repackaging elements to some data structures and applying some additional logic
+                    in this example we get all employees work in specfic department by using (groupingBy)
+	  and their count.
+    
+           ==> forEach(): loops over the stream elements, we print every department and count of employees in this department.
+	 	
+
+ 
