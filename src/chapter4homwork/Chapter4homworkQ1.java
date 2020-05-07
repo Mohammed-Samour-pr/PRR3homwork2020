@@ -27,7 +27,7 @@ public class Chapter4homworkQ1 extends Application {
         Map<String, Pane> mapPanes = new TreeMap<>();
         mapPanes.put("tableView", paneTableView);
         mapPanes.put("TextAreaQuery", textarea);
-        Scene scene = new Scene(mapPanes.get("tableView"));
+        Scene scene = new Scene(mapPanes.get("TextAreaQuery"));
         stage.setTitle("Streams and Database App");
         stage.setScene(scene);
         stage.show();

@@ -55,25 +55,25 @@ public class TextAreaQueryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
 
-            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/chapter4db?serverTimezone=UTC", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/prr3", "root", "");
             this.statement = con.createStatement();
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
-        tcstd.setCellValueFactory(new PropertyValueFactory("sid"));
-        tcsname.setCellValueFactory(new PropertyValueFactory("sname"));
+        tcstd.setCellValueFactory(new PropertyValueFactory("id"));
+        tcsname.setCellValueFactory(new PropertyValueFactory("name"));
         tcmajor.setCellValueFactory(new PropertyValueFactory("major"));
         tcgrade.setCellValueFactory(new PropertyValueFactory("grade"));
         try {
             rs = this.statement.executeQuery("select * from Student");
             while (rs.next()) {
                 Student std = new Student();
-                std.setId(rs.getInt("sid"));
-                std.setName(rs.getString("sname"));
+                std.setId(rs.getInt("id"));
+                std.setName(rs.getString("name"));
                 std.setMajor(rs.getString("major"));
                 std.setGrade(rs.getDouble("grade"));
                 tableviewstd.getItems().add(std);
@@ -96,8 +96,8 @@ public class TextAreaQueryController implements Initializable {
             rs = this.statement.executeQuery(textArea_Query.getText());
             while (rs.next()) {
                 Student std = new Student();
-                std.setId(rs.getInt("sid"));
-                std.setName(rs.getString("sname"));
+                std.setId(rs.getInt("id"));
+                std.setName(rs.getString("name"));
                 std.setMajor(rs.getString("major"));
                 std.setGrade(rs.getDouble("grade"));
                 tableviewstd.getItems().add(std);

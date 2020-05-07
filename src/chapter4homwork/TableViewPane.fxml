@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chapter4homworkq1.TableViewPaneController">
+<FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chapter4homworkq1.TableViewPaneController">
     <children>
-        <VBox alignment="CENTER" prefHeight="440.0" prefWidth="639.0" spacing="15.0">
+        <VBox alignment="CENTER" prefHeight="454.0" prefWidth="655.0" spacing="15.0" style="-fx-background-color: #ffff;">
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
@@ -78,7 +78,7 @@
                                 </TextField>
                             </children>
                         </GridPane>
-                        <TableView fx:id="tableView" prefHeight="325.0" prefWidth="348.0" style="-fx-font-size: 14px;">
+                        <TableView fx:id="tableView" prefHeight="326.0" prefWidth="426.0" style="-fx-font-size: 14px;">
                             <columns>
                                 <TableColumn fx:id="tcID" prefWidth="59.0" text="ID" />
                                 <TableColumn fx:id="tcName" prefWidth="90.0" text="Name" />
@@ -90,7 +90,7 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                     <children>
-                        <Button fx:id="buttonShow" mnemonicParsing="false" onAction="#buttonShowHandle" prefHeight="30.0" prefWidth="90.0" text="Show" textFill="WHITE">
+                        <Button fx:id="buttonAdd" mnemonicParsing="false" onAction="#buttonAddHandle" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #008080;" text="Add" textFill="#f1f0f8">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
@@ -99,7 +99,7 @@
                                 <URL value="@styles.css" />
                             </stylesheets>
                         </Button>
-                        <Button fx:id="buttonAdd" mnemonicParsing="false" onAction="#buttonAddHandle" prefHeight="30.0" prefWidth="90.0" text="Add" textFill="WHITE">
+                        <Button fx:id="buttonUpdate" mnemonicParsing="false" onAction="#buttonUpdateHandle" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #008080;" text="Edit" textFill="#d37f7fde">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
@@ -108,25 +108,7 @@
                                 <URL value="@styles.css" />
                             </stylesheets>
                         </Button>
-                        <Button fx:id="buttonUpdate" mnemonicParsing="false" onAction="#buttonUpdateHandle" prefHeight="30.0" prefWidth="90.0" text="Update" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
-                            <stylesheets>
-                                <URL value="@styles.css" />
-                                <URL value="@styles.css" />
-                            </stylesheets>
-                        </Button>
-                        <Button fx:id="buttonDelete" mnemonicParsing="false" onAction="#buttonDeleteHandle" prefHeight="30.0" prefWidth="90.0" text="Delete" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
-                            <stylesheets>
-                                <URL value="@styles.css" />
-                                <URL value="@styles.css" />
-                            </stylesheets>
-                        </Button>
-                        <Button fx:id="buttonReset" mnemonicParsing="false" onAction="#buttonResetHandle" prefHeight="30.0" prefWidth="90.0" text="Reset" textFill="WHITE">
+                        <Button fx:id="buttonDelete" mnemonicParsing="false" onAction="#buttonDeleteHandle" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #008080;" text="Delete" textFill="#ee0b0b">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>

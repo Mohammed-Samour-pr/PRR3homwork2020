@@ -47,15 +47,11 @@ public class TableViewPaneController implements Initializable {
     @FXML
     private TableColumn<Student, Double> tcgerade;
     @FXML
-    private Button buttonShow;
-    @FXML
     private Button buttonAdd;
     @FXML
     private Button buttonUpdate;
     @FXML
     private Button buttonDelete;
-    @FXML
-    private Button buttonReset;
     Statement statement;
     ResultSet rs;
 
@@ -65,12 +61,9 @@ public class TableViewPaneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            // TODO
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/prr3", "root", "");
-
             this.statement = connection.createStatement();
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -97,50 +90,37 @@ public class TableViewPaneController implements Initializable {
     }
 
     @FXML
-    private void buttonShowHandle(ActionEvent event) {
-        showSelectedStudent();
-    }
-
-    @FXML
     private void buttonAddHandle(ActionEvent event) throws SQLException {
-        Integer sid = Integer.parseInt(tcID.getText());
-        String sname = tcName.getText();
-        String major = tcmajor.getText();
-        double grade = Double.parseDouble(tcgerade.getText());
-        String sql2 = "Insert Into student values(" + sid + ",'" + sname + "','" + major + "'," + grade + ")";
-        this.statement.executeUpdate(sql2);
+        Integer id = Integer.parseInt(txtFieldID.getText());
+        String name = txtFieldName.getText();
+        String major = txtFieldmajor.getText();
+        String grade = txtFieldgrade.getText();
+        String sql = "Insert Into student values(" + id + ",'" + name + "','" + major + "'," + grade + ")";
+        this.statement.executeUpdate(sql);
         tableView.getItems().clear();
         referachTable();
     }
 
     @FXML
     private void buttonUpdateHandle(ActionEvent event) throws SQLException {
-        Integer sid = Integer.parseInt(tcID.getText());
-        String sname = tcName.getText();
-        String major = tcmajor.getText();
-        Double grade = Double.parseDouble(tcgerade.getText());
-        String sql = "Update Student Set sname='" + sname + "', major='"
-                + major + "', grade=" + grade + " Where sid=" + sid;
+        Integer id = Integer.parseInt(txtFieldID.getText());
+        String name = txtFieldName.getText();
+        String major = txtFieldmajor.getText();
+        String grade = txtFieldgrade.getText();
+        String sql = "Update Student Set name='" + name + "', major='"
+                + major + "', grade=" + grade + " Where id=" + id;
         this.statement.executeUpdate(sql);
-
         tableView.getItems().clear();
-
         referachTable();
-
     }
 
     @FXML
     private void buttonDeleteHandle(ActionEvent event) throws SQLException {
-        Integer sid = Integer.parseInt(tcID.getText());
-        String sql = "Delete from student where id=" + sid;
+        Integer id = Integer.parseInt(txtFieldID.getText());
+        String sql = "Delete from student where id=" + id;
         this.statement.executeUpdate(sql);
         tableView.getItems().clear();
         referachTable();
-
-    }
-
-    @FXML
-    private void buttonResetHandle(ActionEvent event) {
 
     }
 
@@ -163,10 +143,10 @@ public class TableViewPaneController implements Initializable {
     private void showSelectedStudent() {
         Student student = tableView.getSelectionModel().getSelectedItem();
         if (student != null) {
-            tcID.setText(String.valueOf(student.getId()));
-            tcName.setText(student.getName());
-            tcmajor.setText(student.getMajor());
-            tcmajor.setText(String.valueOf(student.getGrade()));
+            txtFieldID.setText(String.valueOf(student.getId()));
+            txtFieldName.setText(student.getName());
+            txtFieldmajor.setText(student.getMajor());
+            txtFieldgrade.setText(String.valueOf(student.getGrade()));
         }
 
     }
