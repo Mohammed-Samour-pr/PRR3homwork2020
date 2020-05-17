@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chapter4homwork;
+package Chapter4homwork4;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -27,7 +27,7 @@ public class Chapter4homworkQ1 extends Application {
         Map<String, Pane> mapPanes = new TreeMap<>();
         mapPanes.put("tableView", paneTableView);
         mapPanes.put("TextAreaQuery", textarea);
-        Scene scene = new Scene(mapPanes.get("TextAreaQuery"));
+        Scene scene = new Scene(mapPanes.get("tableView"));
         stage.setTitle("Streams and Database App");
         stage.setScene(scene);
         stage.show();
